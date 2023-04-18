@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:action="@{/infoPage}"th:object="${infoClass}">
+		<h1 th:text="*{title}"></h1>
+		<p th:text="*{info1}"></p>
+		<p th:text="*{info2}"></p>
+		<p th:text="*{info3}"></p>
+		<p th:text="*{info4}"></p>
+		<p th:text="*{error}"></p>
+
+	</div>
+</body>
+</html>
