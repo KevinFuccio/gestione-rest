@@ -15,6 +15,7 @@ import com.week_project.model.Edificio;
 import com.week_project.model.Utente;
 import com.week_project.model.infoClass;
 import com.week_project.service.EdificioService;
+import com.week_project.service.InfoClassService;
 import com.week_project.service.PrenotazioneService;
 import com.week_project.service.UtenteService;
 
@@ -26,6 +27,8 @@ public class InfoController {
 	UtenteService utente;
 	@Autowired
 	EdificioService edificio;
+	@Autowired
+	InfoClassService info;
 	
 	
 	@GetMapping("/{lang}")
@@ -36,8 +39,7 @@ public class InfoController {
 	//senza html
 	@GetMapping("/test/{lang}")
 	public @ResponseBody String edificio(@PathVariable String lang){
-		infoClass a = new infoClass(lang);
-		return a.toString();
+		return info.stringifyInfo(lang);
 	}
 	
 	@GetMapping("/utente/{id}")

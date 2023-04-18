@@ -12,6 +12,9 @@ public class infoClass {
 	private String error;
 	
 	
+	public infoClass() {
+		
+	}
 	public infoClass(String lang) {
 
 		if(lang.contains("it")) {
