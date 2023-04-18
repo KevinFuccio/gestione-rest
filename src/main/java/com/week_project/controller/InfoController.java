@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.week_project.model.Edificio;
 import com.week_project.model.Utente;
 import com.week_project.model.infoClass;
+import com.week_project.service.EdificioService;
 import com.week_project.service.PrenotazioneService;
 import com.week_project.service.UtenteService;
 
@@ -21,6 +23,8 @@ import com.week_project.service.UtenteService;
 public class InfoController {
 	@Autowired
 	UtenteService utente;
+	@Autowired
+	EdificioService edificio;
 	
 	
 	@GetMapping("/{lang}")
@@ -28,9 +32,14 @@ public class InfoController {
 		return new ModelAndView("infoPage","infoClass",new infoClass(lang));
 	}
 	
-	@GetMapping("/prenotazioni/{id}")
-	public ResponseEntity<Utente> prenotazioni(@PathVariable Long id){
+	@GetMapping("/utente/{id}")
+	public ResponseEntity<Utente> utente(@PathVariable Long id){
 		ResponseEntity<Utente> resp= new ResponseEntity<Utente>(utente.findUtenteByID(id), HttpStatus.OK);
+		return resp;
+	}
+	@GetMapping("/edificio/{id}")
+	public ResponseEntity<Edificio> edificio(@PathVariable Long id){
+		ResponseEntity<Edificio> resp= new ResponseEntity<Edificio>(edificio.findEdificioByID(id), HttpStatus.OK);
 		return resp;
 	}
 }
