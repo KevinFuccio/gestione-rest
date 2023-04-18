@@ -91,4 +91,11 @@ public class infoClass {
 	public void setError(String error) {
 		this.error = error;
 	}
+
+
+	@Override
+	public String toString() {
+		return title +" "+ info1 +" " + info2 +" " +info1 +" " + info2;
+	}
+	
 }

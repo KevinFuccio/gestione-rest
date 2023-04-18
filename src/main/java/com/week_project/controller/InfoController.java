@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.week_project.model.Edificio;
@@ -30,6 +31,13 @@ public class InfoController {
 	@GetMapping("/{lang}")
 	public ModelAndView infoPage(@PathVariable String lang) {
 		return new ModelAndView("infoPage","infoClass",new infoClass(lang));
+	}
+	
+	//senza html
+	@GetMapping("/test/{lang}")
+	public @ResponseBody String edificio(@PathVariable String lang){
+		infoClass a = new infoClass(lang);
+		return a.toString();
 	}
 	
 	@GetMapping("/utente/{id}")
