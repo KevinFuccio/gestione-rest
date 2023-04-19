@@ -42,4 +42,8 @@ public class PostazioneService {
 	public List<Postazione> findAll(){
 		return (List<Postazione>) repo.findAll();
 	}
+	public String removePostazione(Long e) {
+		repo.deleteById(e);
+		return "utente eliminato";
+	};
 }

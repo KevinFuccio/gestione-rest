@@ -34,8 +34,8 @@ public class EdificioService {
 	public void saveEdificio(Edificio e) {
 		repo.save(e);
 	}
-	public void updateEdificio(Edificio e) {
-		repo.save(e);
+	public Edificio updateEdificio(Edificio e) {
+		return repo.save(e);
 	}
 	public Edificio findEdificioByID(Long id) {
 		return repo.findById(id).get();

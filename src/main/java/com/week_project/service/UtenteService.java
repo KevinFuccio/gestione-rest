@@ -46,5 +46,8 @@ public class UtenteService {
 	public List<Postazione> findByCityIn(Stato_Postazione stato,String citta){
 		return repo.findByCityInCitta(stato,citta);
 	}
-	
+	public String removeUtenteByID(Long id) {
+		repo.deleteById(id);
+		return "utente eliminato";
+	}
 }

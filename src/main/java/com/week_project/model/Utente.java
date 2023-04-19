@@ -22,7 +22,7 @@ public class Utente {
 	private String username;
 	private String nome_completo;
 	private String email;
-	@OneToMany(mappedBy = "utente",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utente",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Prenotazione> prenotazioni;
 	
 	

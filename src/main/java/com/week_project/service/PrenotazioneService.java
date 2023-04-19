@@ -66,5 +66,9 @@ public class PrenotazioneService {
 	public List<Prenotazione> findAll(){
 		return (List<Prenotazione>) repo.findAll();
 	}
+	public String removePrenotazione(Long id) {
+		repo.deleteById(id);
+		return "prenotazione eliminata";
+	}
 
 }
