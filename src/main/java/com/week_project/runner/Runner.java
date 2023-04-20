@@ -44,7 +44,7 @@ public class Runner implements CommandLineRunner{
 //		//prenotazione gia esistente ma con la postazione libera
 //		prenotazioneService.createPrenotazione(utenteService.findUtenteByID(1l), postazioneService.findPostazioneByID(2l), LocalDate.of(2024, 8, 26));
 //		
-		
+//		prenotazioneService.createPrenotazione(utenteService.findUtenteByID(3l),postazioneService.findPostazioneByID(3l),LocalDate.now());
 		
 		//cercare la citta dando il tipo di postazione e la citta
 //		System.out.println(utenteService.findByCityIn(Stato_Postazione.OPENSPACE,"Catania"));

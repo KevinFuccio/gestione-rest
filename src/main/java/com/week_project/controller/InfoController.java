@@ -1,6 +1,7 @@
 package com.week_project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -78,5 +79,9 @@ public class InfoController {
 	@GetMapping("/prenotazioni")
 	public ResponseEntity<?> getAllPrenotazioni(){
 		return new ResponseEntity<>(utente.findAll(),HttpStatus.OK);
+	}
+	@GetMapping("/utenti")
+	public ResponseEntity<?> getPageableUtenti(Pageable pageable){
+		return new ResponseEntity<>(utente.findAllPageable(pageable),HttpStatus.OK);
 	}
 }

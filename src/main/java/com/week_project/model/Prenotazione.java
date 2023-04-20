@@ -2,6 +2,7 @@ package com.week_project.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,8 +20,10 @@ public class Prenotazione {
     private Long idPrenotazione;
     private LocalDate prenotazionePostazione;
     private LocalDate finePrenotazionePostazione;
+    @JsonBackReference(value = "postazione_prenotazione")
     @ManyToOne
     private Postazione postazionePrenotata;
+    @JsonBackReference(value = "utente_prenotazione")
     @ManyToOne
     private Utente utente;
     

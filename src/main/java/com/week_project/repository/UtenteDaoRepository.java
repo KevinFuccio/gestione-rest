@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import com.week_project.model.Edificio;
@@ -13,7 +14,7 @@ import com.week_project.model.Utente;
 
 //AND SELECT e FROM Edificio e WHERE e.citta IN :citta
 @Repository
-public interface UtenteDaoRepository extends CrudRepository<Utente, Long> {
+public interface UtenteDaoRepository extends CrudRepository<Utente, Long>,PagingAndSortingRepository<Utente, Long> {
 	
 	
 	@Query(value="SELECT p FROM Postazione p WHERE p.tipologia_postazione = :postazione AND p.edificio.citta = :citta")

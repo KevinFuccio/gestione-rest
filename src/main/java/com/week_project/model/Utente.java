@@ -2,6 +2,9 @@ package com.week_project.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,6 +25,7 @@ public class Utente {
 	private String username;
 	private String nome_completo;
 	private String email;
+	@JsonManagedReference(value = "utente_prenotazione")
 	@OneToMany(mappedBy = "utente",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Prenotazione> prenotazioni;
 	
